@@ -7,3 +7,7 @@
     ![alt text](image.png)
 
 - [네이버 환율](https://m.stock.naver.com/marketindex/exchange/FX_JPYKRW)
+
+<실행방법>
+- 리눅스 시, Python 가상환경 오픈 후, cli.py 실행
+- 윈도우 시, Conda 가상환경 오픈 후, activate.bat 실행(bat 파일 조정 필요)
