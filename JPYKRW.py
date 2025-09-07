@@ -19,13 +19,12 @@ def get_currency():
         html = response.text
         soup = BeautifulSoup(html, 'html.parser')
 
-        selector_price = "#content > div.DetailInfo_article__2XNzs > div.DetailInfo_info__evvn5.DetailInfo_widePadding__t2ti2 > div.DetailInfo_infoPrice__ODLC6.DetailInfo_widePadding__t2ti2 > strong"
-        selector_updown = "#content > div.DetailInfo_article__2XNzs > div.DetailInfo_info__evvn5.DetailInfo_widePadding__t2ti2 > div.DetailInfo_infoPrice__ODLC6.DetailInfo_widePadding__t2ti2 > div > span:nth-child(1)"
-        selector_percent = "#content > div.DetailInfo_article__2XNzs > div.DetailInfo_info__evvn5.DetailInfo_widePadding__t2ti2 > div.DetailInfo_infoPrice__ODLC6.DetailInfo_widePadding__t2ti2 > div > span:nth-child(2)"
+        selector_price = "#content > div.DetailInfo_article__gnpKe > div.DetailInfo_info__CL557.DetailInfo_widePadding__cyDJ6 > div.DetailInfo_infoPrice__IwFL1.DetailInfo_widePadding__cyDJ6 > strong"
+        selector_updown = "#content > div.DetailInfo_article__gnpKe > div.DetailInfo_info__CL557.DetailInfo_widePadding__cyDJ6 > div.DetailInfo_infoPrice__IwFL1.DetailInfo_widePadding__cyDJ6 > div > span:nth-child(1) > span"
+        selector_percent = "#content > div.DetailInfo_article__gnpKe > div.DetailInfo_info__CL557.DetailInfo_widePadding__cyDJ6 > div.DetailInfo_infoPrice__IwFL1.DetailInfo_widePadding__cyDJ6 > div > span:nth-child(2)"
 
         price = soup.select_one(selector_price)
         price = price.text.strip().replace("KRW","")
-
         updown = soup.select_one(selector_updown)
         if "RISING" in str(updown):
             updown = "▲ " + updown.text.strip()
