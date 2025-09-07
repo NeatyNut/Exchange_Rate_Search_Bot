@@ -11,7 +11,8 @@ def insert_row(date:str, time:str, price:str, updown:str, percent:str):
     # 2. 공유된 구글 시트 열기
     # "SpreadsheetName"을 구글 시트의 제목으로, "SheetName"을 작업하려는 시트 이름으로 변경하세요.
     spreadsheet = client.open("환율정보")
-    worksheet = spreadsheet.worksheet("엔화")
+    # worksheet = spreadsheet.worksheet("엔화")
+    worksheet = spreadsheet.worksheet("대만TWD")
 
     existing_rows = worksheet.col_values(1)  # 첫 번째 열(A열)의 값들을 가져옴
     next_available_row = len(existing_rows) + 1  # 데이터가 채워진 마지막 행 다음 행
