@@ -3,8 +3,7 @@ from bs4 import BeautifulSoup
 from datetime import datetime
 
 def get_currency():
-    # jpykrw_url = "https://m.stock.naver.com/marketindex/exchange/FX_JPYKRW"
-    jpykrw_url = "https://m.stock.naver.com/marketindex/exchange/FX_TWDKRW"
+    index_url = "https://finance.naver.com/marketindex/"
 
     headers = {
         'User-Agent': 'Mozilla/5.0'
