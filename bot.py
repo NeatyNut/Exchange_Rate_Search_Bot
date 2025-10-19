@@ -26,6 +26,7 @@ class bot:
         self.CHANGE = os.getenv("CHANGE")
         self.UPDOWN = os.getenv("UPDOWN")
         self.WEBHOOK_URL = os.getenv("WEBHOOK_URL")
+        self.max_trial = 5
         self.order = {self.CURRUNCY:[self.USA, self.JAP, self.EU, self.CN], self.OILGOLD:[self.WOIL, self.KOIL, self.WGOLD, self.KGOLD]}
         self.order2 = [self.NUM, self.CHANGE, self.UPDOWN]
         self.indexs = {
@@ -136,15 +137,15 @@ class bot:
         
         return message
     
-    def send_message(self, message:str):
+    def send_message(self, message:str, trial=1):
         data = {
             "content": message
         }
 
         response = requests.post(self.WEBHOOK_URL, json=data)
 
-        if not response.status_code == 204:
-            self.send_message(message)
+        if not response.status_code == 204 and trial <= self.max_trial:
+            self.send_message(message, trial+1)
 
     def run(self):
         
