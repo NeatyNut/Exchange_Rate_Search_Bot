@@ -67,13 +67,12 @@ class bot:
 
                             if ex_value != 0:
                                 numbers = [ex_value, float(value)]
-                                change_rate = (max(numbers) - min(numbers))
-
+                                change_rate = (max(numbers) - min(numbers))/ex_value
                                 if change_rate >= 0.02:
                                     self.indexs[val]["show"] = True
 
-                                self.indexs[val]["high"] = float(value)
-                                self.indexs[val]["low"] = float(value)
+                                self.indexs[val]["high"] = max(float(value), self.indexs[val]["high"])
+                                self.indexs[val]["low"] = min(float(value), self.indexs[val]["low"])
                             else :
                                 self.indexs[val]["high"] = max(float(value), self.indexs[val]["high"])
                                 self.indexs[val]["low"] = min(float(value), self.indexs[val]["low"])
