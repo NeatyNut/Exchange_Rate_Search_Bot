@@ -17,9 +17,8 @@ if __name__ == "__main__":
             time.sleep(sleep_seconds)
             continue
         else :
-            reply = scheduler.check_reply()
-
-        search_bot = bot(reply=reply)
+            start = scheduler.check_start()
+        search_bot = bot(start=start)
         if search_bot.run():
             sleep_seconds = scheduler.waiting()
             del search_bot
