@@ -1,6 +1,5 @@
 # from JPYKRW import get_currency
 # from googlesheet import insert_row
-import time
 from bot import bot
 from datetime import datetime, time
 import scheduler
@@ -20,8 +19,6 @@ if __name__ == "__main__":
             start = scheduler.check_start()
         search_bot = bot(start=start)
         if search_bot.run():
-            sleep_seconds = scheduler.waiting()
             del search_bot
-            time.sleep(sleep_seconds)
         else :
             break

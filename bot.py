@@ -149,7 +149,6 @@ class bot:
                 self.indexs[self.KGOLD]["show"] = False
         
         message = message.replace("  ", "")
-        
         return message
     
     def send_message(self, message:str, trial=1):
@@ -173,7 +172,6 @@ class bot:
                     message = self.report(option="end")
                 else :
                     message = self.report()
-                print(message)
                 self.send_message(message)
             except Exception as e :
                 try :
@@ -182,6 +180,6 @@ class bot:
                 except :
                     return False
             
-            time.sleep(60)
+            time.sleep(1800)
             
         return True
